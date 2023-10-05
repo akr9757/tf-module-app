@@ -1,8 +1,4 @@
-resource "aws_instance" "test" {
-  ami = "ami-03265a0778a880afb"
-  instance_type = var.instance_type
-  subnet_id = var.subnet_id
-}
-
-variable "instance_type" {}
-variable "subnet_id" {}
+resource "aws_security_group" "sg" {
+  name        = "${var.name}-${var.env}-sg"
+  description = "${var.name}-${var.env}-sg"
+  vpc_id      = var.vpc_id
